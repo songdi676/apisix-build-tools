@@ -66,6 +66,8 @@ else
         https://github.com/api7/lua-var-nginx-module
 fi
 
+git clone --depth=1 https://github.com/nbs-system/naxsi.git
+
 cd ngx_multi_upstream_module || exit 1
 ./patch.sh ../openresty-${or_ver}
 cd ..
@@ -94,6 +96,7 @@ cd openresty-${or_ver} || exit 1
     --add-module=../apisix-nginx-module/src/stream \
     --add-module=../wasm-nginx-module \
     --add-module=../lua-var-nginx-module \
+    --add-module=../naxsi/naxsi_src \
     --with-poll_module \
     --with-pcre-jit \
     --without-http_rds_json_module \
